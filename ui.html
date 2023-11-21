@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sheets to Figma Frames</title>
+</head>
+<body>
+  <h1>Google Sheets to Figma Frames</h1>
+  <label for="sheetUrl">Google Sheets URL:</label>
+  <input type="text" id="sheetUrl" placeholder="Enter Google Sheets URL" />
+  <button id="createFramesButton">Create Frames</button>
+
+  <script>
+    document.getElementById('createFramesButton').addEventListener('click', () => {
+      const sheetUrl = document.getElementById('sheetUrl').value;
+      parent.postMessage({ pluginMessage: { type: 'createFrames', sheetUrl } }, '*');
+    });
+  </script>
+</body>
+</html>
